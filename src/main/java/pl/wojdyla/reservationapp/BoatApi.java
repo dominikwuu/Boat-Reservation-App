@@ -1,35 +1,45 @@
 package pl.wojdyla.reservationapp;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+
 
 @RestController
 @RequestMapping("/api/boats")
 public class BoatApi {
 
-    private List<Boat> boat;
+    private List<Boat> boats;
 
     public  BoatApi(){
-        boat = new ArrayList<>();
-        boat.add(new Boat("Ebro1"));
-        boat.add(new Boat("Ebro2"));
-        boat.add(new Boat("Ebro3"));
-        boat.add(new Boat("Ebro4"));
-        boat.add(new Boat("RIB BORA"));
-        boat.add(new Boat("Bayliner e7"));
-        boat.add(new Boat("Bavaria Sport"));
-        boat.add(new Boat("ELAN"));
+        boats = new ArrayList<>();
+        boats.add(new Boat("Ebro1",false));
+        boats.add(new Boat("Ebro2",false));
+        boats.add(new Boat("Ebro3",false));
+        boats.add(new Boat("Ebro4",false));
+        boats.add(new Boat("RIB BORA",false));
+        boats.add(new Boat("Bayliner E7",false));
+        boats.add(new Boat("LEMA FORCE",false));
+        boats.add(new Boat("Bavaria Sport",false));
+        boats.add(new Boat("ELAN",false));
     }
 
     @GetMapping("/all")
     public List<Boat> getAll(){
-        return boat;
+        return boats;
+    }
+    @PostMapping
+    public boolean addBoat(@RequestBody Boat boat){
+        return boats.add(boat);
+    }
+    @DeleteMapping
+    public boolean deleteBoat(@RequestParam String boatName){
+        return boats.removeIf(element -> element.getBoatName().equals(boatName));
+    }
+    @PutMapping
+    public boolean updateBoat(@RequestBody Boat boat){
+        return boats.add(boat);
     }
 
 }
