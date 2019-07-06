@@ -1,8 +1,6 @@
 package pl.wojdyla.reservationapp;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,14 +10,28 @@ public class UserApi {
 
     private List<User> users;
 
-    public UserApi(){
+    public UserApi() {
         users = new ArrayList<>();
-        users.add(new User("Wojdyła","Dominik","123456789",
+        users.add(new User("Wojdyła", "Dominik", "123456789",
                 "email@gmail.com"));
     }
 
     @GetMapping("/all")
-    public List<User> getAll(){
+    public List<User> getAll() {
         return users;
+    }
+
+    @PostMapping
+    public boolean addUser(@RequestBody User user) {
+        return users.add(user);
+    }
+
+    @PutMapping
+    public boolean updateUser(@RequestBody User user) {
+        return users.add(user);
+    }
+    @DeleteMapping
+    public boolean removeUser(@RequestParam String userName){
+        return users.removeIf(element -> element.getName().equals(userName));
     }
 }
