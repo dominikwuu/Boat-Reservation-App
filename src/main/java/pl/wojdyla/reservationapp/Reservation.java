@@ -7,9 +7,10 @@ import lombok.Setter;
 @Setter
 @Getter
 @AllArgsConstructor
-public class User {
-    private String name;
-    private String firstName;
-    private String telephoneNumber;
-    private String emailAdress;
+public class Reservation {
+    User user;
+    Boat boat;
+    boolean isPaid;
+    boolean isAvailableForReservation;
+
 }
