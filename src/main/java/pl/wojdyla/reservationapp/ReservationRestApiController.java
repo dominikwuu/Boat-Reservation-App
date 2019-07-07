@@ -7,10 +7,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/reservations")
-public class ReservationApi {
+public class ReservationRestApiController {
     public List<Reservation> reservations;
 
-    public ReservationApi(){
+    public ReservationRestApiController(){
         reservations = new ArrayList<>();
     }
 
