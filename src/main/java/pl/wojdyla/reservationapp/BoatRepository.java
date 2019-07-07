@@ -1,4 +1,8 @@
 package pl.wojdyla.reservationapp;
 
-public interface BoatRepository {
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface BoatRepository extends CrudRepository<Boat, Long> {
 }

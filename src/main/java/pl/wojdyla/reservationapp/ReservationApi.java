@@ -30,6 +30,4 @@ public class ReservationApi {
     public boolean deleteReservation(@RequestParam String userName) {
         return reservations.removeIf(element -> element.user.getName().equals(userName));
     }
-
-
 }

@@ -1,6 +1,23 @@
 package pl.wojdyla.reservationapp;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Reservation {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    Long id;
     User user;
     Boat boat;
     int statusOfPayment; // 0: paid, 1: waiting for payment
@@ -38,7 +55,8 @@ public class Reservation {
         this.statusOfReservation = statusOfReservation;
     }
 
-    public Reservation(User user, Boat boat, int statusOfPayment, int statusOfReservation) {
+    public Reservation(Long id, User user, Boat boat, int statusOfPayment, int statusOfReservation) {
+        this.id = id;
         this.user = user;
         this.boat = boat;
         this.statusOfPayment = statusOfPayment;

@@ -14,15 +14,15 @@ public class BoatApi {
 
     public  BoatApi(){
         boats = new ArrayList<>();
-        boats.add(new Boat("Ebro1",false));
-        boats.add(new Boat("Ebro2",false));
-        boats.add(new Boat("Ebro3",false));
-        boats.add(new Boat("Ebro4",false));
-        boats.add(new Boat("RIB BORA",false));
-        boats.add(new Boat("Bayliner E7",false));
-        boats.add(new Boat("LEMA FORCE",false));
-        boats.add(new Boat("Bavaria Sport",false));
-        boats.add(new Boat("ELAN",false));
+        boats.add(new Boat(1L,"Ebro1",false));
+        boats.add(new Boat(2L,"Ebro2",false));
+        boats.add(new Boat(3L,"Ebro3",false));
+        boats.add(new Boat(4L,"Ebro4",false));
+        boats.add(new Boat(5L,"RIB BORA",false));
+        boats.add(new Boat(6L,"Bayliner E7",false));
+        boats.add(new Boat(7L,"LEMA FORCE",false));
+        boats.add(new Boat(8L,"Bavaria Sport",false));
+        boats.add(new Boat(9L,"ELAN",false));
     }
 
     @GetMapping("/all")
@@ -34,8 +34,8 @@ public class BoatApi {
         return boats.add(boat);
     }
     @DeleteMapping
-    public boolean deleteBoat(@RequestParam String boatName){
-        return boats.removeIf(element -> element.getBoatName().equals(boatName));
+    public boolean deleteBoat(@RequestParam Long id){
+        return boats.removeIf(element -> element.getId() == id);
     }
     @PutMapping
     public boolean updateBoat(@RequestBody Boat boat){
