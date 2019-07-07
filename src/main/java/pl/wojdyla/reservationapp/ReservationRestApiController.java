@@ -28,6 +28,6 @@ public class ReservationRestApiController {
     }
     @DeleteMapping
     public boolean deleteReservation(@RequestParam String userName) {
-        return reservations.removeIf(element -> element.user.getName().equals(userName));
+        return reservations.removeIf(element -> element.getUser().getName().equals(userName));
     }
 }

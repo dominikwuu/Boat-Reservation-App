@@ -13,6 +13,7 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @Entity
+
 public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -21,6 +22,7 @@ public class User {
     private String firstName;
     private String telephoneNumber;
     private String emailAdress;
+
 
 }
 
