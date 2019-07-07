@@ -6,12 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 @RestController
 @RequestMapping("/api/users")
-public class UserApi {
+public class UserRestApiController {
 
     private List<User> users;
 
-    public UserApi() {
+    public UserRestApiController() {
         users = new ArrayList<>();
+        fillDbWithUsers();
+    }
+    public void fillDbWithUsers(){
         users.add(new User("Wojdyła", "Dominik", "123456789",
                 "email@gmail.com"));
     }

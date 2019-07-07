@@ -8,12 +8,15 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/boats")
-public class BoatApi {
+public class BoatRestApiController {
 
     private List<Boat> boats;
 
-    public  BoatApi(){
+    public BoatRestApiController() {
         boats = new ArrayList<>();
+        fillDbWithBoats();
+    }
+    public void fillDbWithBoats(){
         boats.add(new Boat("Ebro1",false));
         boats.add(new Boat("Ebro2",false));
         boats.add(new Boat("Ebro3",false));
